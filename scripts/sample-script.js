@@ -66,6 +66,12 @@ describe('[Challenge] The rewarder', function () {
 
     it('Exploit', async function () {
         /** CODE YOUR EXPLOIT HERE */
+
+        const AttackerContract = await ethers.getContractFactory('Attacker', deployer);
+
+        const attackerContract = AttackerContract.deploy(this.liquidityToken.address, this.flashLoanPool.address);
+
+        // TODO DEPOSIT THE MOST TOKENS
     });
 
     after(async function () {
