@@ -4,7 +4,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
-import "../DamnValuableToken.sol";
+import "./DamnValuableToken.sol";
+
+import "hardhat/console.sol";
 
 /**
  * @title FlashLoanerPool
@@ -22,6 +24,7 @@ contract FlashLoanerPool is ReentrancyGuard {
     }
 
     function flashLoan(uint256 amount) external nonReentrant {
+        // console.log(hello from flashloan");
         uint256 balanceBefore = liquidityToken.balanceOf(address(this));
         require(amount <= balanceBefore, "Not enough token balance");
 
